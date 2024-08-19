@@ -13,6 +13,7 @@
 		0C5AD04E2C735959009B1CA5 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD04D2C735959009B1CA5 /* MoreView.swift */; };
 		0C5AD0522C73687E009B1CA5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD0512C73687E009B1CA5 /* HomeView.swift */; };
 		0C5AD0542C7369F9009B1CA5 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD0532C7369F9009B1CA5 /* TabBarView.swift */; };
+		0C5AD0572C73767D009B1CA5 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD0562C73767D009B1CA5 /* NavigationBarModifier.swift */; };
 		0C6659AE2C733CE200735237 /* MuviApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6659AD2C733CE200735237 /* MuviApp.swift */; };
 		0C6659B02C733CE200735237 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6659AF2C733CE200735237 /* ContainerView.swift */; };
 		0C6659B22C733CE300735237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C6659B12C733CE300735237 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		0C5AD04D2C735959009B1CA5 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		0C5AD0512C73687E009B1CA5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0C5AD0532C7369F9009B1CA5 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		0C5AD0562C73767D009B1CA5 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		0C6659AA2C733CE200735237 /* Muvi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muvi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C6659AD2C733CE200735237 /* MuviApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuviApp.swift; sourceTree = "<group>"; };
 		0C6659AF2C733CE200735237 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
@@ -67,6 +69,14 @@
 				0C5AD04D2C735959009B1CA5 /* MoreView.swift */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		0C5AD0552C73765E009B1CA5 /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				0C5AD0562C73767D009B1CA5 /* NavigationBarModifier.swift */,
+			);
+			path = NavigationBar;
 			sourceTree = "<group>";
 		};
 		0C6659A12C733CE200735237 = {
@@ -108,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				0C6659BF2C734BCA00735237 /* CustomViews */,
+				0C5AD0552C73765E009B1CA5 /* NavigationBar */,
 				0C6659CB2C73504400735237 /* Button */,
 				0C6659CC2C73504900735237 /* Text */,
 				0C6659C82C73500F00735237 /* Extensions */,
@@ -258,6 +269,7 @@
 				0C5AD0492C735930009B1CA5 /* SearchView.swift in Sources */,
 				0C5AD0442C73562F009B1CA5 /* AppTabView.swift in Sources */,
 				0C5AD04E2C735959009B1CA5 /* MoreView.swift in Sources */,
+				0C5AD0572C73767D009B1CA5 /* NavigationBarModifier.swift in Sources */,
 				0C6659B02C733CE200735237 /* ContainerView.swift in Sources */,
 				0C6659C52C734EA600735237 /* OnboardView.swift in Sources */,
 				0C6659C32C734CA800735237 /* SplashView.swift in Sources */,
