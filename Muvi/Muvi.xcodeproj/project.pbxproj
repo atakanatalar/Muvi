@@ -51,9 +51,9 @@
 		0C6659AC2C733CE200735237 /* Muvi */ = {
 			isa = PBXGroup;
 			children = (
-				0C6659AD2C733CE200735237 /* MuviApp.swift */,
-				0C6659AF2C733CE200735237 /* ContentView.swift */,
-				0C6659B12C733CE300735237 /* Assets.xcassets */,
+				0C6659BD2C73416400735237 /* App */,
+				0C6659BE2C73489900735237 /* Views */,
+				0C6659BB2C73411D00735237 /* UIComponents */,
 				0C6659B32C733CE300735237 /* Preview Content */,
 			);
 			path = Muvi;
@@ -65,6 +65,38 @@
 				0C6659B42C733CE300735237 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0C6659BB2C73411D00735237 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				0C6659BC2C73413E00735237 /* Resources */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		0C6659BC2C73413E00735237 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0C6659B12C733CE300735237 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0C6659BD2C73416400735237 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0C6659AD2C733CE200735237 /* MuviApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		0C6659BE2C73489900735237 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0C6659AF2C733CE200735237 /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
