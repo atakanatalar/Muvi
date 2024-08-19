@@ -13,6 +13,7 @@
 		0C6659B52C733CE300735237 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C6659B42C733CE300735237 /* Preview Assets.xcassets */; };
 		0C6659C12C734BE600735237 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6659C02C734BE600735237 /* LogoView.swift */; };
 		0C6659C32C734CA800735237 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6659C22C734CA800735237 /* SplashView.swift */; };
+		0C6659CE2C73508100735237 /* TextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6659CD2C73508100735237 /* TextModifier.swift */; };
 		0C6659D02C7350CE00735237 /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6659CF2C7350CE00735237 /* ButtonModifier.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +25,7 @@
 		0C6659B42C733CE300735237 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0C6659C02C734BE600735237 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		0C6659C22C734CA800735237 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		0C6659CD2C73508100735237 /* TextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextModifier.swift; sourceTree = "<group>"; };
 		0C6659CF2C7350CE00735237 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +80,7 @@
 			children = (
 				0C6659BF2C734BCA00735237 /* CustomViews */,
 				0C6659CB2C73504400735237 /* Button */,
+				0C6659CC2C73504900735237 /* Text */,
 				0C6659BC2C73413E00735237 /* Resources */,
 			);
 			path = UIComponents;
@@ -122,6 +125,14 @@
 				0C6659CF2C7350CE00735237 /* ButtonModifier.swift */,
 			);
 			path = Button;
+			sourceTree = "<group>";
+		};
+		0C6659CC2C73504900735237 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				0C6659CD2C73508100735237 /* TextModifier.swift */,
+			);
+			path = Text;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C6659CE2C73508100735237 /* TextModifier.swift in Sources */,
 				0C6659D02C7350CE00735237 /* ButtonModifier.swift in Sources */,
 				0C6659B02C733CE200735237 /* ContainerView.swift in Sources */,
 				0C6659C32C734CA800735237 /* SplashView.swift in Sources */,
