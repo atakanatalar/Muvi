@@ -8,17 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		0C6659AE2C733CE200735237 /* MuviApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6659AD2C733CE200735237 /* MuviApp.swift */; };
-		0C6659B02C733CE200735237 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6659AF2C733CE200735237 /* ContentView.swift */; };
+		0C6659B02C733CE200735237 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6659AF2C733CE200735237 /* ContainerView.swift */; };
 		0C6659B22C733CE300735237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C6659B12C733CE300735237 /* Assets.xcassets */; };
 		0C6659B52C733CE300735237 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C6659B42C733CE300735237 /* Preview Assets.xcassets */; };
+		0C6659C12C734BE600735237 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6659C02C734BE600735237 /* LogoView.swift */; };
+		0C6659C32C734CA800735237 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6659C22C734CA800735237 /* SplashView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0C6659AA2C733CE200735237 /* Muvi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muvi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C6659AD2C733CE200735237 /* MuviApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuviApp.swift; sourceTree = "<group>"; };
-		0C6659AF2C733CE200735237 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0C6659AF2C733CE200735237 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		0C6659B12C733CE300735237 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C6659B42C733CE300735237 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0C6659C02C734BE600735237 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
+		0C6659C22C734CA800735237 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 		0C6659BB2C73411D00735237 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				0C6659BF2C734BCA00735237 /* CustomViews */,
 				0C6659BC2C73413E00735237 /* Resources */,
 			);
 			path = UIComponents;
@@ -94,9 +99,18 @@
 		0C6659BE2C73489900735237 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0C6659AF2C733CE200735237 /* ContentView.swift */,
+				0C6659AF2C733CE200735237 /* ContainerView.swift */,
+				0C6659C22C734CA800735237 /* SplashView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0C6659BF2C734BCA00735237 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				0C6659C02C734BE600735237 /* LogoView.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,7 +183,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C6659B02C733CE200735237 /* ContentView.swift in Sources */,
+				0C6659B02C733CE200735237 /* ContainerView.swift in Sources */,
+				0C6659C32C734CA800735237 /* SplashView.swift in Sources */,
+				0C6659C12C734BE600735237 /* LogoView.swift in Sources */,
 				0C6659AE2C733CE200735237 /* MuviApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
