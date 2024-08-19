@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0C5AD0442C73562F009B1CA5 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD0432C73562F009B1CA5 /* AppTabView.swift */; };
+		0C5AD0492C735930009B1CA5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD0482C735930009B1CA5 /* SearchView.swift */; };
+		0C5AD04C2C73594A009B1CA5 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD04B2C73594A009B1CA5 /* ListView.swift */; };
+		0C5AD04E2C735959009B1CA5 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD04D2C735959009B1CA5 /* MoreView.swift */; };
+		0C5AD0522C73687E009B1CA5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD0512C73687E009B1CA5 /* HomeView.swift */; };
+		0C5AD0542C7369F9009B1CA5 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD0532C7369F9009B1CA5 /* TabBarView.swift */; };
 		0C6659AE2C733CE200735237 /* MuviApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6659AD2C733CE200735237 /* MuviApp.swift */; };
 		0C6659B02C733CE200735237 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6659AF2C733CE200735237 /* ContainerView.swift */; };
 		0C6659B22C733CE300735237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C6659B12C733CE300735237 /* Assets.xcassets */; };
@@ -23,6 +28,11 @@
 
 /* Begin PBXFileReference section */
 		0C5AD0432C73562F009B1CA5 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
+		0C5AD0482C735930009B1CA5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		0C5AD04B2C73594A009B1CA5 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		0C5AD04D2C735959009B1CA5 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
+		0C5AD0512C73687E009B1CA5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		0C5AD0532C7369F9009B1CA5 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		0C6659AA2C733CE200735237 /* Muvi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muvi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C6659AD2C733CE200735237 /* MuviApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuviApp.swift; sourceTree = "<group>"; };
 		0C6659AF2C733CE200735237 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
@@ -48,6 +58,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C5AD0452C735918009B1CA5 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				0C5AD0512C73687E009B1CA5 /* HomeView.swift */,
+				0C5AD0482C735930009B1CA5 /* SearchView.swift */,
+				0C5AD04B2C73594A009B1CA5 /* ListView.swift */,
+				0C5AD04D2C735959009B1CA5 /* MoreView.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
 		0C6659A12C733CE200735237 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +139,7 @@
 				0C6659C22C734CA800735237 /* SplashView.swift */,
 				0C6659C42C734EA600735237 /* OnboardView.swift */,
 				0C5AD0432C73562F009B1CA5 /* AppTabView.swift */,
+				0C5AD0452C735918009B1CA5 /* Scenes */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -127,6 +149,7 @@
 			children = (
 				0C6659C02C734BE600735237 /* LogoView.swift */,
 				0C6659C62C734F2500735237 /* BackgroundView.swift */,
+				0C5AD0532C7369F9009B1CA5 /* TabBarView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -226,10 +249,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C6659CA2C73502700735237 /* View+Ext.swift in Sources */,
+				0C5AD04C2C73594A009B1CA5 /* ListView.swift in Sources */,
+				0C5AD0522C73687E009B1CA5 /* HomeView.swift in Sources */,
 				0C6659CE2C73508100735237 /* TextModifier.swift in Sources */,
 				0C6659C72C734F2500735237 /* BackgroundView.swift in Sources */,
 				0C6659D02C7350CE00735237 /* ButtonModifier.swift in Sources */,
+				0C5AD0542C7369F9009B1CA5 /* TabBarView.swift in Sources */,
+				0C5AD0492C735930009B1CA5 /* SearchView.swift in Sources */,
 				0C5AD0442C73562F009B1CA5 /* AppTabView.swift in Sources */,
+				0C5AD04E2C735959009B1CA5 /* MoreView.swift in Sources */,
 				0C6659B02C733CE200735237 /* ContainerView.swift in Sources */,
 				0C6659C52C734EA600735237 /* OnboardView.swift in Sources */,
 				0C6659C32C734CA800735237 /* SplashView.swift in Sources */,
