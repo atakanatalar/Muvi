@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct OnboardView: View {
+    @AppStorage("isFirstTime") private var isFirstTime: Bool = true
+    @Binding var isShowingOnboardView: Bool
+    
     var body: some View {
         ZStack {
             BackgroundView()
@@ -24,7 +27,8 @@ struct OnboardView: View {
                 Spacer()
                 
                 Button {
-                    //
+                    isFirstTime = false
+                    isShowingOnboardView = false
                 } label: {
                     Text("Get Started")
                         .frame(maxWidth: .infinity)
@@ -39,5 +43,5 @@ struct OnboardView: View {
 }
 
 #Preview {
-    OnboardView()
+    OnboardView(isShowingOnboardView: .constant(true))
 }
