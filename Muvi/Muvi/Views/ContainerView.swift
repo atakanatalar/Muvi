@@ -12,7 +12,7 @@ struct ContainerView: View {
     
     var body: some View {
         if !isSplashScreenPresented {
-            //
+            OnboardView()
         } else {
             SplashView(isPresented: $isSplashScreenPresented)
         }
