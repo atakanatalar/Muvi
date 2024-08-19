@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-//MARK: Text
 extension View {
+    //MARK: Text
     func headline1TextStyle() -> some View {
         self.modifier(Headline1TextModifier())
     }
@@ -16,11 +16,14 @@ extension View {
     func headline2TextStyle() -> some View {
         self.modifier(Headline2TextModifier())
     }
-}
-
-//MARK: Button
-extension View {
+    
+    //MARK: Button
     func primaryButtonStyle(backgroundColor: Color, foregroundColor: Color) -> some View {
         self.modifier(PrimaryButtonModifier(backgroundColor: backgroundColor, foregroundColor: foregroundColor))
+    }
+    
+    //MARK: NavigationBar
+    func navigationBar() -> some View {
+        self.modifier(NavigationBarModifier())
     }
 }
