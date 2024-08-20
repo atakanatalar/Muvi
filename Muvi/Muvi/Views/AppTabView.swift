@@ -23,19 +23,23 @@ struct AppTabView: View {
         ZStack(alignment: .bottom) {
             TabView(selection: $selectedTab) {
                 NavigationStack { HomeView() }
-                .tag(0)
+                    .tag(0)
                 
                 NavigationStack { SearchView() }
-                .tag(1)
+                    .tag(1)
                 
                 NavigationStack { ListView() }
-                .tag(2)
+                    .tag(2)
                 
                 NavigationStack { MoreView() }
-                .tag(3)
+                    .tag(3)
             }
             
-            TabBarView(selectedTab: $selectedTab, tabs: tabs)
+            VStack(spacing: 0) {
+                Divider()
+                    .background(Color(.separator))
+                TabBarView(selectedTab: $selectedTab, tabs: tabs)
+            }
         }
         .edgesIgnoringSafeArea(.bottom)
         .onAppear {
