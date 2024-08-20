@@ -18,18 +18,9 @@ struct HomeView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 segmentedControl
                 HeroCell()
-                
-                VStack {
-                    ForEach(SegmentedTab.allCases, id: \.self) { tab in
-                        if activeTabs == tab {
-                            Text(tab.rawValue)
-                                .foregroundColor(.white)
-                                .font(.title)
-                                .padding()
-                        }
-                    }
-                }
-                .frame(maxWidth: .infinity)
+                MediaSectionView(title: "Popular Movies")
+                MediaSectionView(title: "Now Playing")
+                MediaSectionView(title: "Top Rated Movies")
             }
         }
         .navigationBar()
