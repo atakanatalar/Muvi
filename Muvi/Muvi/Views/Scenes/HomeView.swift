@@ -17,6 +17,7 @@ struct HomeView: View {
             
             ScrollView(.vertical, showsIndicators: false) {
                 segmentedControl
+                HeroCell()
                 
                 VStack {
                     ForEach(SegmentedTab.allCases, id: \.self) { tab in
