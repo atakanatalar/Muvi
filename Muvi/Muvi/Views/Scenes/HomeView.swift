@@ -24,6 +24,7 @@ struct HomeView: View {
             }
         }
         .navigationBar()
+        .onAppear { fetchMediaSamples() }
     }
     
     var segmentedControl: some View {
@@ -44,6 +45,17 @@ struct HomeView: View {
             RoundedRectangle(cornerRadius: 0)
                 .fill(.surfaceDark)
                 .ignoresSafeArea()
+        }
+    }
+    
+    func fetchMediaSamples() {
+        Task {
+            do {
+                let trendingMovies: Media = try await NetworkManager.shared.fetchData(endpoint: .trendingMovie(.day))
+                print(trendingMovies.results)
+            } catch {
+                print("Failed to fetch data: \(error)")
+            }
         }
     }
 }
