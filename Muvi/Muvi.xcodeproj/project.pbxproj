@@ -21,6 +21,7 @@
 		0C5AD0712C75176D009B1CA5 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD0702C75176D009B1CA5 /* Media.swift */; };
 		0C5AD0732C75177A009B1CA5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD0722C75177A009B1CA5 /* NetworkManager.swift */; };
 		0C5AD0782C751A24009B1CA5 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD0772C751A24009B1CA5 /* NetworkConstants.swift */; };
+		0C5AD07F2C762A33009B1CA5 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD07E2C762A33009B1CA5 /* Helpers.swift */; };
 		0C6659AE2C733CE200735237 /* MuviApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6659AD2C733CE200735237 /* MuviApp.swift */; };
 		0C6659B02C733CE200735237 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6659AF2C733CE200735237 /* ContainerView.swift */; };
 		0C6659B22C733CE300735237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C6659B12C733CE300735237 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		0C5AD0702C75176D009B1CA5 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		0C5AD0722C75177A009B1CA5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0C5AD0772C751A24009B1CA5 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		0C5AD07E2C762A33009B1CA5 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		0C6659AA2C733CE200735237 /* Muvi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muvi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C6659AD2C733CE200735237 /* MuviApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuviApp.swift; sourceTree = "<group>"; };
 		0C6659AF2C733CE200735237 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
@@ -119,6 +121,14 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		0C5AD07D2C7629E7009B1CA5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0C5AD07E2C762A33009B1CA5 /* Helpers.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		0C6659A12C733CE200735237 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +151,7 @@
 				0C6659BD2C73416400735237 /* App */,
 				0C5AD06D2C751742009B1CA5 /* DataProvider */,
 				0C6659BE2C73489900735237 /* Views */,
+				0C5AD07D2C7629E7009B1CA5 /* Utilities */,
 				0C6659BB2C73411D00735237 /* UIComponents */,
 				0C6659B32C733CE300735237 /* Preview Content */,
 			);
@@ -325,6 +336,7 @@
 				0C5AD0682C73C1D1009B1CA5 /* HeroCell.swift in Sources */,
 				0C5AD06C2C7490BC009B1CA5 /* MediaSectionView.swift in Sources */,
 				0C6659C12C734BE600735237 /* LogoView.swift in Sources */,
+				0C5AD07F2C762A33009B1CA5 /* Helpers.swift in Sources */,
 				0C6659AE2C733CE200735237 /* MuviApp.swift in Sources */,
 				0C5AD0782C751A24009B1CA5 /* NetworkConstants.swift in Sources */,
 			);

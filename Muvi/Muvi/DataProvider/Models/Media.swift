@@ -56,6 +56,11 @@ struct Result: Codable {
         case firstAirDate = "first_air_date"
         case originCountry = "origin_country"
     }
+    
+    // Computed property to determine if the media is HD
+    var isHd: Bool {
+        return isHdReleaseDate(releaseDate: releaseDate, firstAirDate: firstAirDate)
+    }
 }
 
 enum OriginalLanguage: String, Codable {
