@@ -10,6 +10,7 @@ import SwiftUI
 struct MediaSectionView: View {
     let title: String
     let medias: [Result]
+    let isRanked: Bool
     
     let verticalPadding: CGFloat = 20
     let horizontalPadding: CGFloat = 20
@@ -20,14 +21,16 @@ struct MediaSectionView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: vStackSpacing) {
             Text(title)
+                .font(.title3)
+                .fontWeight(.bold)
                 .foregroundStyle(.white)
-                .font(.headline)
                 .padding(.horizontal, horizontalPadding)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: gridItems, spacing: 10) {
-                    ForEach(medias, id: \.id) { media in
-                        MediaCell(media: media)
+                    let itemToDisplay = isRanked ? Array(medias.prefix(10)) : medias
+                    ForEach(Array(itemToDisplay.enumerated()), id: \.element.id) { index, media in
+                        MediaCell(media: media, topTenRanking: isRanked ? index + 1 : nil)
                     }
                 }
             }
@@ -45,7 +48,8 @@ struct MediaSectionView: View {
             medias: [
                 Result.mockResult,
                 Result.emptyMockResult
-            ]
+            ], 
+            isRanked: false
         )
     }
 }
