@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MediaCell: View {
+    let media: Result
     
     let width: CGFloat = 128
     let height: CGFloat = 192
@@ -16,19 +17,22 @@ struct MediaCell: View {
     
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            Image(.poster)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: width, height: height)
-                .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
-                .clipped()
+            ImageView(
+                imagePath: media.posterPath ?? "",
+                aspectRatio: .fit,
+                width: width,
+                height: height,
+                cornerRadius: cornerRadius
+            )
             
-            Image(.iconHd)
-                .padding([.leading, .bottom], paddingIconHd)
+            if media.isHd {
+                Image(.iconHd)
+                    .padding([.leading, .bottom], paddingIconHd)
+            }
         }
     }
 }
 
 #Preview {
-    MediaCell()
+    MediaCell(media: Result.emptyMockResult)
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State var activeTabs: SegmentedTab = .all
+    @State var trendingMovies: Media?
     
     var body: some View {
         ZStack {
@@ -17,10 +18,8 @@ struct HomeView: View {
             
             ScrollView(.vertical, showsIndicators: false) {
                 segmentedControl
-                HeroCell()
-                MediaSectionView(title: "Popular Movies")
-                MediaSectionView(title: "Now Playing")
-                MediaSectionView(title: "Top Rated Movies")
+                HeroCell(media: trendingMovies?.results.first ?? Result.emptyMockResult)
+                MediaSectionView(title: "Trending Movies", medias: trendingMovies?.results ?? [])
             }
         }
         .navigationBar()
@@ -52,7 +51,9 @@ struct HomeView: View {
         Task {
             do {
                 let trendingMovies: Media = try await NetworkManager.shared.fetchData(endpoint: .trendingMovie(.day))
-                print(trendingMovies.results)
+                DispatchQueue.main.async {
+                    self.trendingMovies = trendingMovies
+                }
             } catch {
                 print("Failed to fetch data: \(error)")
             }

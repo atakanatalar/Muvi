@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MediaSectionView: View {
     let title: String
+    let medias: [Result]
     
     let verticalPadding: CGFloat = 20
     let horizontalPadding: CGFloat = 20
@@ -25,8 +26,8 @@ struct MediaSectionView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: gridItems, spacing: 10) {
-                    ForEach(0..<20) { _ in
-                        MediaCell()
+                    ForEach(medias, id: \.id) { media in
+                        MediaCell(media: media)
                     }
                 }
             }
@@ -37,5 +38,14 @@ struct MediaSectionView: View {
 }
 
 #Preview {
-    MediaSectionView(title: "Section Title")
+    ZStack {
+        Color.surfaceDark.ignoresSafeArea()
+        MediaSectionView(
+            title: "Section Title",
+            medias: [
+                Result.mockResult,
+                Result.emptyMockResult
+            ]
+        )
+    }
 }

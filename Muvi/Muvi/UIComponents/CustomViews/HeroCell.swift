@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HeroCell: View {
+    var media: Result
+    
     let width: CGFloat = UIScreen.main.bounds.width
     let height: CGFloat = UIScreen.main.bounds.width * 9 / 16
     let vStackSpacing: CGFloat = 8
@@ -15,10 +17,12 @@ struct HeroCell: View {
     
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            Image(.backdrop)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: width, height: height)
+            ImageView(
+                imagePath: media.backdropPath ?? "",
+                aspectRatio: .fit,
+                width: width,
+                height: height
+            )
             
             LinearGradient(
                 gradient: Gradient(colors: [Color.clear, Color.surfaceDark.opacity(1.0)]),
@@ -27,15 +31,15 @@ struct HeroCell: View {
             )
             
             VStack(alignment: .leading, spacing: vStackSpacing) {
-                Text("Movie Title")
+                Text(media.title ?? media.name ?? "")
                     .font(.headline)
                     .foregroundStyle(.surfaceWhite)
                     .textCase(.uppercase)
                 
                 HStack {
-                    Image(.iconHd)
+                    if media.isHd { Image(.iconHd) }
                     
-                    Text("2024")
+                    Text(media.releaseDate?.prefix(4) ?? media.firstAirDate?.prefix(4) ?? "")
                         .font(.subheadline)
                         .foregroundStyle(.surfaceWhite)
                     
@@ -47,5 +51,5 @@ struct HeroCell: View {
 }
 
 #Preview {
-    HeroCell()
+    HeroCell(media: Result.mockResult)
 }
