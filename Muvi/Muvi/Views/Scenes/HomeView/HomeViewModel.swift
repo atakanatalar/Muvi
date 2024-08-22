@@ -8,10 +8,12 @@
 import Foundation
 
 class HomeViewModel: ObservableObject {
+    @Published var trendingAll: Media?
     @Published var trendingMovies: Media?
     @Published var trendingTvShows: Media?
-    @Published var heroMoviesItem: Result?
-    @Published var heroTvShowsItem: Result?
+    @Published var heroAll: Result?
+    @Published var heroMovie: Result?
+    @Published var heroTvShow: Result?
     @Published var topRatedMovies: Media?
     @Published var topRatedTVShows: Media?
     @Published var popularMovies: Media?
@@ -24,8 +26,9 @@ class HomeViewModel: ObservableObject {
     func fetchMedias() {
         Task {
             do {
-                let trendingMovies: Media = try await NetworkManager.shared.fetchData(endpoint: .trendingMovie(.day))
-                let trendingTvShows: Media = try await NetworkManager.shared.fetchData(endpoint: .trendingTvShows(.day))
+                let trendingAll: Media = try await NetworkManager.shared.fetchData(endpoint: .trendingMedia(.all, .week))
+                let trendingMovies: Media = try await NetworkManager.shared.fetchData(endpoint: .trendingMedia(.movie, .day))
+                let trendingTvShows: Media = try await NetworkManager.shared.fetchData(endpoint: .trendingMedia(.tv, .day))
                 let topRatedMovies: Media = try await NetworkManager.shared.fetchData(endpoint: .topRated(.movie))
                 let topRatedTVShows: Media = try await NetworkManager.shared.fetchData(endpoint: .topRated(.tv))
                 let popularMovies: Media = try await NetworkManager.shared.fetchData(endpoint: .popular(.movie))
@@ -36,10 +39,12 @@ class HomeViewModel: ObservableObject {
                 let airingToday: Media = try await NetworkManager.shared.fetchData(endpoint: .airingToday)
                 
                 DispatchQueue.main.async {
+                    self.heroAll = trendingAll.results.first
+                    self.trendingAll = trendingAll
+                    self.heroMovie = trendingMovies.results.first
                     self.trendingMovies = trendingMovies
-                    self.heroMoviesItem = trendingMovies.results.first
+                    self.heroTvShow = trendingTvShows.results.first
                     self.trendingTvShows = trendingTvShows
-                    self.heroTvShowsItem = trendingTvShows.results.first
                     self.topRatedMovies = topRatedMovies
                     self.topRatedTVShows = topRatedTVShows
                     self.popularMovies = popularMovies

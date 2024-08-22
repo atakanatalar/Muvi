@@ -54,11 +54,11 @@ struct HomeView: View {
     private var heroMedia: Result {
         switch activeTabs {
         case .all:
-            return viewModel.heroMoviesItem ?? Result.emptyMockResult
+            return viewModel.heroAll ?? Result.emptyMockResult
         case .movies:
-            return viewModel.heroMoviesItem ?? Result.emptyMockResult
+            return viewModel.heroMovie ?? Result.emptyMockResult
         case .tvShows:
-            return viewModel.heroTvShowsItem ?? Result.emptyMockResult
+            return viewModel.heroTvShow ?? Result.emptyMockResult
         }
     }
     

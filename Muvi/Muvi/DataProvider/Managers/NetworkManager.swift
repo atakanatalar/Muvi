@@ -41,8 +41,7 @@ enum MediaEndpoint {
     case onTheAir
     case nowPlaying
     case airingToday
-    case trendingMovie(TimeWindow)
-    case trendingTvShows(TimeWindow)
+    case trendingMedia(MediaType,TimeWindow)
     
     var path: String {
         switch self {
@@ -58,15 +57,14 @@ enum MediaEndpoint {
             return "movie/now_playing"
         case .airingToday:
             return "tv/airing_today"
-        case .trendingMovie(let timeWindow):
-            return "trending/movie/\(timeWindow.rawValue)"
-        case .trendingTvShows(let timeWindow):
-            return "trending/tv/\(timeWindow.rawValue)"
+        case .trendingMedia(let mediaType, let timeWindow):
+            return "trending/\(mediaType.rawValue)/\(timeWindow.rawValue)"
         }
     }
 }
 
 enum MediaType: String, Codable {
+    case all = "all"
     case movie = "movie"
     case tv = "tv"
 }
