@@ -25,7 +25,9 @@
 		0C5AD07C2C762637009B1CA5 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD07B2C762637009B1CA5 /* ShimmerView.swift */; };
 		0C5AD07F2C762A33009B1CA5 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD07E2C762A33009B1CA5 /* Helpers.swift */; };
 		0C5AD0812C763554009B1CA5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD0802C763554009B1CA5 /* HomeViewModel.swift */; };
+		0C5AD0842C7717CC009B1CA5 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD0832C7717CC009B1CA5 /* DetailView.swift */; };
 		0C5AD0872C77289F009B1CA5 /* MediaDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD0862C77289F009B1CA5 /* MediaDetail.swift */; };
+		0C5AD0892C772979009B1CA5 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD0882C772979009B1CA5 /* DetailViewModel.swift */; };
 		0C5AD08B2C7760F0009B1CA5 /* Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD08A2C7760F0009B1CA5 /* Credits.swift */; };
 		0C5AD08D2C776C1F009B1CA5 /* CreditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD08C2C776C1F009B1CA5 /* CreditCell.swift */; };
 		0C6659AE2C733CE200735237 /* MuviApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6659AD2C733CE200735237 /* MuviApp.swift */; };
@@ -60,7 +62,9 @@
 		0C5AD07B2C762637009B1CA5 /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 		0C5AD07E2C762A33009B1CA5 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		0C5AD0802C763554009B1CA5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		0C5AD0832C7717CC009B1CA5 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		0C5AD0862C77289F009B1CA5 /* MediaDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetail.swift; sourceTree = "<group>"; };
+		0C5AD0882C772979009B1CA5 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		0C5AD08A2C7760F0009B1CA5 /* Credits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credits.swift; sourceTree = "<group>"; };
 		0C5AD08C2C776C1F009B1CA5 /* CreditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCell.swift; sourceTree = "<group>"; };
 		0C6659AA2C733CE200735237 /* Muvi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muvi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +95,7 @@
 		0C5AD0452C735918009B1CA5 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				0C5AD0852C7717D2009B1CA5 /* DetailView */,
 				0C5AD0822C763E81009B1CA5 /* HomeView */,
 				0C5AD0482C735930009B1CA5 /* SearchView.swift */,
 				0C5AD04B2C73594A009B1CA5 /* ListView.swift */,
@@ -120,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				0C5AD0702C75176D009B1CA5 /* Media.swift */,
+				0C5AD0862C77289F009B1CA5 /* MediaDetail.swift */,
 				0C5AD08A2C7760F0009B1CA5 /* Credits.swift */,
 			);
 			path = Models;
@@ -149,6 +155,15 @@
 				0C5AD0802C763554009B1CA5 /* HomeViewModel.swift */,
 			);
 			path = HomeView;
+			sourceTree = "<group>";
+		};
+		0C5AD0852C7717D2009B1CA5 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				0C5AD0832C7717CC009B1CA5 /* DetailView.swift */,
+				0C5AD0882C772979009B1CA5 /* DetailViewModel.swift */,
+			);
+			path = DetailView;
 			sourceTree = "<group>";
 		};
 		0C6659A12C733CE200735237 = {
@@ -355,11 +370,13 @@
 				0C5AD0812C763554009B1CA5 /* HomeViewModel.swift in Sources */,
 				0C5AD0542C7369F9009B1CA5 /* TabBarView.swift in Sources */,
 				0C5AD0492C735930009B1CA5 /* SearchView.swift in Sources */,
+				0C5AD0892C772979009B1CA5 /* DetailViewModel.swift in Sources */,
 				0C5AD07C2C762637009B1CA5 /* ShimmerView.swift in Sources */,
 				0C5AD0442C73562F009B1CA5 /* AppTabView.swift in Sources */,
 				0C5AD04E2C735959009B1CA5 /* MoreView.swift in Sources */,
 				0C5AD0572C73767D009B1CA5 /* NavigationBarModifier.swift in Sources */,
 				0C5AD0872C77289F009B1CA5 /* MediaDetail.swift in Sources */,
+				0C5AD0842C7717CC009B1CA5 /* DetailView.swift in Sources */,
 				0C6659B02C733CE200735237 /* ContainerView.swift in Sources */,
 				0C5AD0592C738F4D009B1CA5 /* SegmentedControl.swift in Sources */,
 				0C6659C52C734EA600735237 /* OnboardView.swift in Sources */,
