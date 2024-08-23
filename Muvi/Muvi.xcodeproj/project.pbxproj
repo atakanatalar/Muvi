@@ -25,6 +25,9 @@
 		0C5AD07C2C762637009B1CA5 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD07B2C762637009B1CA5 /* ShimmerView.swift */; };
 		0C5AD07F2C762A33009B1CA5 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD07E2C762A33009B1CA5 /* Helpers.swift */; };
 		0C5AD0812C763554009B1CA5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD0802C763554009B1CA5 /* HomeViewModel.swift */; };
+		0C5AD0872C77289F009B1CA5 /* MediaDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD0862C77289F009B1CA5 /* MediaDetail.swift */; };
+		0C5AD08B2C7760F0009B1CA5 /* Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD08A2C7760F0009B1CA5 /* Credits.swift */; };
+		0C5AD08D2C776C1F009B1CA5 /* CreditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD08C2C776C1F009B1CA5 /* CreditCell.swift */; };
 		0C6659AE2C733CE200735237 /* MuviApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6659AD2C733CE200735237 /* MuviApp.swift */; };
 		0C6659B02C733CE200735237 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6659AF2C733CE200735237 /* ContainerView.swift */; };
 		0C6659B22C733CE300735237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C6659B12C733CE300735237 /* Assets.xcassets */; };
@@ -57,6 +60,9 @@
 		0C5AD07B2C762637009B1CA5 /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 		0C5AD07E2C762A33009B1CA5 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		0C5AD0802C763554009B1CA5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		0C5AD0862C77289F009B1CA5 /* MediaDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetail.swift; sourceTree = "<group>"; };
+		0C5AD08A2C7760F0009B1CA5 /* Credits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credits.swift; sourceTree = "<group>"; };
+		0C5AD08C2C776C1F009B1CA5 /* CreditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCell.swift; sourceTree = "<group>"; };
 		0C6659AA2C733CE200735237 /* Muvi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muvi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C6659AD2C733CE200735237 /* MuviApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuviApp.swift; sourceTree = "<group>"; };
 		0C6659AF2C733CE200735237 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
@@ -114,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				0C5AD0702C75176D009B1CA5 /* Media.swift */,
+				0C5AD08A2C7760F0009B1CA5 /* Credits.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -234,6 +241,7 @@
 				0C5AD06B2C7490BC009B1CA5 /* MediaSectionView.swift */,
 				0C5AD0792C761F42009B1CA5 /* ImageView.swift */,
 				0C5AD07B2C762637009B1CA5 /* ShimmerView.swift */,
+				0C5AD08C2C776C1F009B1CA5 /* CreditCell.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -334,9 +342,11 @@
 			files = (
 				0C5AD07A2C761F43009B1CA5 /* ImageView.swift in Sources */,
 				0C6659CA2C73502700735237 /* View+Ext.swift in Sources */,
+				0C5AD08B2C7760F0009B1CA5 /* Credits.swift in Sources */,
 				0C5AD04C2C73594A009B1CA5 /* ListView.swift in Sources */,
 				0C5AD0712C75176D009B1CA5 /* Media.swift in Sources */,
 				0C5AD0522C73687E009B1CA5 /* HomeView.swift in Sources */,
+				0C5AD08D2C776C1F009B1CA5 /* CreditCell.swift in Sources */,
 				0C5AD0732C75177A009B1CA5 /* NetworkManager.swift in Sources */,
 				0C6659CE2C73508100735237 /* TextModifier.swift in Sources */,
 				0C5AD06A2C748F83009B1CA5 /* MediaCell.swift in Sources */,
@@ -349,6 +359,7 @@
 				0C5AD0442C73562F009B1CA5 /* AppTabView.swift in Sources */,
 				0C5AD04E2C735959009B1CA5 /* MoreView.swift in Sources */,
 				0C5AD0572C73767D009B1CA5 /* NavigationBarModifier.swift in Sources */,
+				0C5AD0872C77289F009B1CA5 /* MediaDetail.swift in Sources */,
 				0C6659B02C733CE200735237 /* ContainerView.swift in Sources */,
 				0C5AD0592C738F4D009B1CA5 /* SegmentedControl.swift in Sources */,
 				0C6659C52C734EA600735237 /* OnboardView.swift in Sources */,
