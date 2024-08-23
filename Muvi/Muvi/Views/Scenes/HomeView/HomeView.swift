@@ -19,7 +19,9 @@ struct HomeView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(alignment: .leading) {
                     segmentedControl
-                    HeroCell(media: heroMedia)
+                    NavigationLink(destination: DetailView(viewModel: DetailViewModel(media: heroMedia))) {
+                        HeroCell(media: heroMedia)
+                    }
                     ForEach(mediaSections, id: \.title) { section in
                         section
                     }

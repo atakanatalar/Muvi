@@ -30,7 +30,9 @@ struct MediaSectionView: View {
                 LazyHGrid(rows: gridItems, spacing: 10) {
                     let itemToDisplay = isRanked ? Array(medias.prefix(10)) : medias
                     ForEach(Array(itemToDisplay.enumerated()), id: \.element.id) { index, media in
-                        MediaCell(media: media, topTenRanking: isRanked ? index + 1 : nil)
+                        NavigationLink(destination: DetailView(viewModel: DetailViewModel(media: media))) {
+                            MediaCell(media: media, topTenRanking: isRanked ? index + 1 : nil)
+                        }
                     }
                 }
             }
