@@ -42,6 +42,9 @@ enum MediaEndpoint {
     case nowPlaying
     case airingToday
     case trendingMedia(MediaType,TimeWindow)
+    case detail(MediaType, Int)
+    case credits(MediaType, Int)
+    case recommendations(MediaType, Int)
     
     var path: String {
         switch self {
@@ -59,6 +62,12 @@ enum MediaEndpoint {
             return "tv/airing_today"
         case .trendingMedia(let mediaType, let timeWindow):
             return "trending/\(mediaType.rawValue)/\(timeWindow.rawValue)"
+        case .detail(let mediaType, let id):
+            return "\(mediaType.rawValue)/\(id)"
+        case .credits(let mediaType, let id):
+            return "\(mediaType.rawValue)/\(id)/credits"
+        case .recommendations(let mediaType, let id):
+            return "\(mediaType.rawValue)/\(id)/recommendations"
         }
     }
 }
