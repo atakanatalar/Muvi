@@ -26,16 +26,17 @@ struct Result: Codable {
     let title, originalTitle: String?
     let overview: String?
     let posterPath: String?
-    let adult: Bool
+    let adult: Bool?
     let originalLanguage: OriginalLanguage?
-    let genreIDS: [Int]
-    let popularity: Double
+    let genreIDS: [Int]?
+    let popularity: Double?
     let releaseDate: String?
     let video: Bool?
-    let voteAverage: Double
-    let voteCount: Int
+    let voteAverage: Double?
+    let voteCount: Int?
     let name, originalName, firstAirDate: String?
     let originCountry: [String]?
+    let mediaType: SearchMediaType?
     
     enum CodingKeys: String, CodingKey {
         case backdropPath = "backdrop_path"
@@ -55,11 +56,25 @@ struct Result: Codable {
         case originalName = "original_name"
         case firstAirDate = "first_air_date"
         case originCountry = "origin_country"
+        case mediaType = "media_type"
     }
     
     // Computed property to determine if the media is HD
     var isHd: Bool {
         return isHdReleaseDate(releaseDate: releaseDate, firstAirDate: firstAirDate)
+    }
+}
+
+enum SearchMediaType: String, Codable {
+    case movie = "movie"
+    case person = "person"
+    case tv = "tv"
+    case unknown
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let value = try container.decode(String.self)
+        self = SearchMediaType(rawValue: value) ?? .unknown
     }
 }
 
@@ -105,7 +120,8 @@ extension Result {
         firstAirDate: "2024-08-13",
         originCountry: [
             "TR"
-        ]
+        ],
+        mediaType: .movie
     )
     
     static let emptyMockResult: Result = Result(
@@ -130,6 +146,7 @@ extension Result {
         firstAirDate: "",
         originCountry: [
             ""
-        ]
+        ],
+        mediaType: .none
     )
 }

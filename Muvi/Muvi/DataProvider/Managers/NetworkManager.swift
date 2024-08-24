@@ -14,11 +14,19 @@ class NetworkManager {
         let url = URL(string: NetworkConstants.baseURL + endpoint.path)!
         var components = URLComponents(url: url, resolvingAgainstBaseURL: true)!
         
-        let queryItems: [URLQueryItem] = [
+        var queryItems: [URLQueryItem] = [
             URLQueryItem(name: "language", value: language),
             URLQueryItem(name: "page", value: String(page))
         ]
-        components.queryItems = components.queryItems.map { $0 + queryItems } ?? queryItems
+        
+        switch endpoint {
+        case .search(let query):
+            queryItems.append(URLQueryItem(name: "query", value: query))
+        default:
+            break
+        }
+        
+        components.queryItems = queryItems
         
         var request = URLRequest(url: components.url!)
         request.httpMethod = "GET"
@@ -45,6 +53,7 @@ enum MediaEndpoint {
     case detail(MediaType, Int)
     case credits(MediaType, Int)
     case recommendations(MediaType, Int)
+    case search(String)
     
     var path: String {
         switch self {
@@ -68,6 +77,8 @@ enum MediaEndpoint {
             return "\(mediaType.rawValue)/\(id)/credits"
         case .recommendations(let mediaType, let id):
             return "\(mediaType.rawValue)/\(id)/recommendations"
+        case .search(_):
+            return "search/multi"
         }
     }
 }
