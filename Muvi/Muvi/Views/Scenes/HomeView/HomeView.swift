@@ -28,7 +28,7 @@ struct HomeView: View {
                 }
             }
         }
-        .navigationBar()
+        .navigationBar(showLogo: true)
         .onAppear { viewModel.fetchMedias() }
     }
     
