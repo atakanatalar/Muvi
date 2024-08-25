@@ -14,30 +14,51 @@ struct SearchView: View {
         ZStack {
             Color.surfaceDark.ignoresSafeArea()
             
-            VStack {
+            VStack(spacing: 16) {
                 SearchBarView(searchText: $viewModel.searchText)
                 
-                if let media = viewModel.seachResults {
-                    List(media, id: \.id) { media in
-                        NavigationLink(destination: DetailView(viewModel: DetailViewModel(media: media))) {
-                            SearchCell(media: media)
-                        }
-                        .listRowBackground(Color.clear)
-                        .foregroundStyle(.mediumEmphasis)
-                    }
-                    .listStyle(.plain)
+                if let seachResults = viewModel.seachResults {
+                    MediaListView(title: "Top Results", medias: seachResults)
+                    
                 } else {
-                    //
+                    if let mediaRecommendations = viewModel.mediaRecommendations {
+                        MediaListView(title: "Recommended for You", medias: mediaRecommendations)
+                    }
                 }
-                
-                Spacer()
             }
             .padding(.top, 16)
         }
         .navigationBar(title: "Search")
+        .onAppear { viewModel.fetchRecommendations() }
     }
 }
 
 #Preview {
     SearchView()
+}
+
+struct MediaListView: View {
+    var title: String
+    var medias: [Result]
+    
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 12) {
+                Text(title)
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.surfaceWhite)
+                
+                LazyVStack(alignment: .leading, spacing: 12) {
+                    ForEach(medias, id: \.id) { media in
+                        NavigationLink(destination: DetailView(viewModel: DetailViewModel(media: media))) {
+                            SearchCell(media: media)
+                        }
+                    }
+                }
+            }
+            .padding(.horizontal, 20)
+            .padding(.bottom, 16)
+        }
+    }
 }

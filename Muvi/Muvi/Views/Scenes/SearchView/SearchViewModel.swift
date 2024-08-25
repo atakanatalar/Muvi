@@ -11,6 +11,7 @@ import Combine
 class SearchViewModel: ObservableObject {
     @Published var searchText = ""
     @Published var seachResults: [Result]?
+    @Published var mediaRecommendations: [Result]?
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -39,6 +40,19 @@ class SearchViewModel: ObservableObject {
                 }
             } catch {
                 print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func fetchRecommendations() {
+        Task {
+            do {
+                let mediaRecommendations: Media = try await NetworkManager.shared.fetchData(endpoint: .trendingMedia(.all, .week))
+                DispatchQueue.main.async {
+                    self.mediaRecommendations = mediaRecommendations.results
+                }
+            } catch {
+                print("Failed to fetch data: \(error)")
             }
         }
     }

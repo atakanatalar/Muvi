@@ -36,12 +36,11 @@ struct SearchCell: View {
                 Text(media.name ?? media.title ?? "")
                     .font(.headline)
                     .foregroundStyle(.surfaceWhite)
+                    .multilineTextAlignment(.leading)
                 Text(media.releaseDate?.prefix(4) ?? media.firstAirDate?.prefix(4) ?? "")
                     .font(.subheadline)
                     .foregroundStyle(.highEmphasis)
             }
-            
-            Spacer()
         }
     }
 }
