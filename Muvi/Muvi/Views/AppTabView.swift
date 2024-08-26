@@ -15,7 +15,7 @@ struct AppTabView: View {
     let tabs = [
         TabBarItem(icon: "icon_home", selectedIcon: "icon_home_selected", title: "Home"),
         TabBarItem(icon: "icon_search", selectedIcon: "icon_search_selected", title: "Search"),
-        TabBarItem(icon: "icon_folder", selectedIcon: "icon_folder_selected", title: "List"),
+        TabBarItem(icon: "icon_folder", selectedIcon: "icon_folder_selected", title: "My List"),
         TabBarItem(icon: "icon_grid", selectedIcon: "icon_grid_selected", title: "More")
     ]
     
@@ -28,7 +28,7 @@ struct AppTabView: View {
                 NavigationStack { SearchView() }
                     .tag(1)
                 
-                NavigationStack { ListView() }
+                NavigationStack { MyListView() }
                     .tag(2)
                 
                 NavigationStack { MoreView() }

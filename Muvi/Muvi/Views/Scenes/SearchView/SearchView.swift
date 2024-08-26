@@ -18,11 +18,11 @@ struct SearchView: View {
                 SearchBarView(searchText: $viewModel.searchText)
                 
                 if let seachResults = viewModel.seachResults {
-                    MediaListView(title: "Top Results", medias: seachResults)
+                    SearchListView(title: "Top Results", medias: seachResults)
                     
                 } else {
                     if let mediaRecommendations = viewModel.mediaRecommendations {
-                        MediaListView(title: "Recommended for You", medias: mediaRecommendations)
+                        SearchListView(title: "Recommended for You", medias: mediaRecommendations)
                     }
                 }
             }
@@ -37,7 +37,7 @@ struct SearchView: View {
     SearchView()
 }
 
-struct MediaListView: View {
+struct SearchListView: View {
     var title: String
     var medias: [Result]
     
@@ -49,7 +49,7 @@ struct MediaListView: View {
                     .fontWeight(.bold)
                     .foregroundStyle(.surfaceWhite)
                 
-                LazyVStack(alignment: .leading, spacing: 12) {
+                LazyVStack(alignment: .leading, spacing: 16) {
                     ForEach(medias, id: \.id) { media in
                         NavigationLink(destination: DetailView(viewModel: DetailViewModel(media: media))) {
                             SearchCell(media: media)

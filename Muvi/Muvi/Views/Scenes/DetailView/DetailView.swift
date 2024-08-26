@@ -100,9 +100,9 @@ struct DetailView: View {
                         .primaryButtonStyle(backgroundColor: .brandPrimary, foregroundColor: .black)
                         
                         Button {
-                            
+                            viewModel.toggleSaveMedia()
                         } label: {
-                            Label("My List", systemImage: "plus")
+                            Label("My List", systemImage: viewModel.isSaved ? "checkmark" : "plus")
                                 .frame(maxWidth: .infinity)
                                 .frame(height: 48)
                         }
@@ -199,6 +199,9 @@ struct DetailView: View {
         }
         .toolbarBackground(.visible, for: .navigationBar)
         .toolbarBackground(.surfaceDark, for: .navigationBar)
+        .onAppear {
+            viewModel.checkIfMediaIsSaved()
+        }
     }
 }
 

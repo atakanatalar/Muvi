@@ -16,11 +16,27 @@ class DetailViewModel: ObservableObject {
     @Published var screenplayNames: String?
     @Published var storyNames: String?
     @Published var novelNames: String?
+    @Published var isSaved: Bool = false
+    
     var media: Result
     
     init(media: Result) {
         self.media = media
         fetchMediaDetail()
+    }
+    
+    func toggleSaveMedia() {
+        if isSaved {
+            PersistenceManager.shared.removeResult(by: media.id)
+            isSaved = false
+        } else {
+            PersistenceManager.shared.addResult(media)
+            isSaved = true
+        }
+    }
+    
+    func checkIfMediaIsSaved() {
+        isSaved = PersistenceManager.shared.resultExists(with: media.id)
     }
     
     func fetchMediaDetail() {
@@ -41,15 +57,15 @@ class DetailViewModel: ObservableObject {
                     if let directorNames = getNames(for: "Director", from: mediaCredits.crew) {
                         self.directorNames = directorNames
                     }
-
+                    
                     if let screenplayNames = getNames(for: "Screenplay", from: mediaCredits.crew) {
                         self.screenplayNames = screenplayNames
                     }
-
+                    
                     if let storyNames = getNames(for: "Story", from: mediaCredits.crew) {
                         self.storyNames = storyNames
                     }
-
+                    
                     if let novelNames = getNames(for: "Novel", from: mediaCredits.crew) {
                         self.novelNames = novelNames
                     }

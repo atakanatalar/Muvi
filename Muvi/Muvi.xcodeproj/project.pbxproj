@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0C00FFEE2C7C596300A521E3 /* MyListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C00FFED2C7C596300A521E3 /* MyListCell.swift */; };
+		0C00FFF22C7C649600A521E3 /* MyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C00FFF12C7C649600A521E3 /* MyListView.swift */; };
+		0C00FFF52C7C652F00A521E3 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C00FFF42C7C652F00A521E3 /* PersistenceManager.swift */; };
+		0C00FFF72C7C6D2C00A521E3 /* MyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C00FFF62C7C6D2C00A521E3 /* MyListViewModel.swift */; };
 		0C04FEB42C78BE1000F0B8A6 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C04FEB32C78BE1000F0B8A6 /* SearchBarView.swift */; };
 		0C04FEB72C78D6DB00F0B8A6 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C04FEB62C78D6DB00F0B8A6 /* SearchViewModel.swift */; };
 		0C04FEB92C78D7B200F0B8A6 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C04FEB82C78D7B200F0B8A6 /* SearchCell.swift */; };
 		0C5AD0442C73562F009B1CA5 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD0432C73562F009B1CA5 /* AppTabView.swift */; };
 		0C5AD0492C735930009B1CA5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD0482C735930009B1CA5 /* SearchView.swift */; };
-		0C5AD04C2C73594A009B1CA5 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD04B2C73594A009B1CA5 /* ListView.swift */; };
 		0C5AD04E2C735959009B1CA5 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD04D2C735959009B1CA5 /* MoreView.swift */; };
 		0C5AD0522C73687E009B1CA5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD0512C73687E009B1CA5 /* HomeView.swift */; };
 		0C5AD0542C7369F9009B1CA5 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5AD0532C7369F9009B1CA5 /* TabBarView.swift */; };
@@ -49,12 +51,14 @@
 
 /* Begin PBXFileReference section */
 		0C00FFED2C7C596300A521E3 /* MyListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListCell.swift; sourceTree = "<group>"; };
+		0C00FFF12C7C649600A521E3 /* MyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListView.swift; sourceTree = "<group>"; };
+		0C00FFF42C7C652F00A521E3 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		0C00FFF62C7C6D2C00A521E3 /* MyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewModel.swift; sourceTree = "<group>"; };
 		0C04FEB32C78BE1000F0B8A6 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		0C04FEB62C78D6DB00F0B8A6 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		0C04FEB82C78D7B200F0B8A6 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		0C5AD0432C73562F009B1CA5 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
 		0C5AD0482C735930009B1CA5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		0C5AD04B2C73594A009B1CA5 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		0C5AD04D2C735959009B1CA5 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		0C5AD0512C73687E009B1CA5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0C5AD0532C7369F9009B1CA5 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -100,6 +104,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C00FFF32C7C650500A521E3 /* MyListView */ = {
+			isa = PBXGroup;
+			children = (
+				0C00FFF12C7C649600A521E3 /* MyListView.swift */,
+				0C00FFF62C7C6D2C00A521E3 /* MyListViewModel.swift */,
+			);
+			path = MyListView;
+			sourceTree = "<group>";
+		};
 		0C04FEB52C78D6CC00F0B8A6 /* SearchView */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,7 +128,7 @@
 				0C5AD0852C7717D2009B1CA5 /* DetailView */,
 				0C5AD0822C763E81009B1CA5 /* HomeView */,
 				0C04FEB52C78D6CC00F0B8A6 /* SearchView */,
-				0C5AD04B2C73594A009B1CA5 /* ListView.swift */,
+				0C00FFF32C7C650500A521E3 /* MyListView */,
 				0C5AD04D2C735959009B1CA5 /* MoreView.swift */,
 			);
 			path = Scenes;
@@ -153,6 +166,7 @@
 			children = (
 				0C5AD0722C75177A009B1CA5 /* NetworkManager.swift */,
 				0C5AD0772C751A24009B1CA5 /* NetworkConstants.swift */,
+				0C00FFF42C7C652F00A521E3 /* PersistenceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -378,12 +392,13 @@
 				0C5AD07A2C761F43009B1CA5 /* ImageView.swift in Sources */,
 				0C6659CA2C73502700735237 /* View+Ext.swift in Sources */,
 				0C5AD08B2C7760F0009B1CA5 /* Credits.swift in Sources */,
-				0C5AD04C2C73594A009B1CA5 /* ListView.swift in Sources */,
 				0C5AD0712C75176D009B1CA5 /* Media.swift in Sources */,
 				0C5AD0522C73687E009B1CA5 /* HomeView.swift in Sources */,
 				0C5AD08D2C776C1F009B1CA5 /* CreditCell.swift in Sources */,
+				0C00FFF72C7C6D2C00A521E3 /* MyListViewModel.swift in Sources */,
 				0C04FEB42C78BE1000F0B8A6 /* SearchBarView.swift in Sources */,
 				0C5AD0732C75177A009B1CA5 /* NetworkManager.swift in Sources */,
+				0C00FFF52C7C652F00A521E3 /* PersistenceManager.swift in Sources */,
 				0C6659CE2C73508100735237 /* TextModifier.swift in Sources */,
 				0C5AD06A2C748F83009B1CA5 /* MediaCell.swift in Sources */,
 				0C6659C72C734F2500735237 /* BackgroundView.swift in Sources */,
@@ -400,6 +415,7 @@
 				0C5AD0872C77289F009B1CA5 /* MediaDetail.swift in Sources */,
 				0C5AD0842C7717CC009B1CA5 /* DetailView.swift in Sources */,
 				0C00FFEE2C7C596300A521E3 /* MyListCell.swift in Sources */,
+				0C00FFF22C7C649600A521E3 /* MyListView.swift in Sources */,
 				0C6659B02C733CE200735237 /* ContainerView.swift in Sources */,
 				0C5AD0592C738F4D009B1CA5 /* SegmentedControl.swift in Sources */,
 				0C6659C52C734EA600735237 /* OnboardView.swift in Sources */,
