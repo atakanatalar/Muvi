@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C00FFEE2C7C596300A521E3 /* MyListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C00FFED2C7C596300A521E3 /* MyListCell.swift */; };
 		0C04FEB42C78BE1000F0B8A6 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C04FEB32C78BE1000F0B8A6 /* SearchBarView.swift */; };
 		0C04FEB72C78D6DB00F0B8A6 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C04FEB62C78D6DB00F0B8A6 /* SearchViewModel.swift */; };
 		0C04FEB92C78D7B200F0B8A6 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C04FEB82C78D7B200F0B8A6 /* SearchCell.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C00FFED2C7C596300A521E3 /* MyListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListCell.swift; sourceTree = "<group>"; };
 		0C04FEB32C78BE1000F0B8A6 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		0C04FEB62C78D6DB00F0B8A6 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		0C04FEB82C78D7B200F0B8A6 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				0C5AD08C2C776C1F009B1CA5 /* CreditCell.swift */,
 				0C04FEB32C78BE1000F0B8A6 /* SearchBarView.swift */,
 				0C04FEB82C78D7B200F0B8A6 /* SearchCell.swift */,
+				0C00FFED2C7C596300A521E3 /* MyListCell.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				0C5AD0572C73767D009B1CA5 /* NavigationBarModifier.swift in Sources */,
 				0C5AD0872C77289F009B1CA5 /* MediaDetail.swift in Sources */,
 				0C5AD0842C7717CC009B1CA5 /* DetailView.swift in Sources */,
+				0C00FFEE2C7C596300A521E3 /* MyListCell.swift in Sources */,
 				0C6659B02C733CE200735237 /* ContainerView.swift in Sources */,
 				0C5AD0592C738F4D009B1CA5 /* SegmentedControl.swift in Sources */,
 				0C6659C52C734EA600735237 /* OnboardView.swift in Sources */,
