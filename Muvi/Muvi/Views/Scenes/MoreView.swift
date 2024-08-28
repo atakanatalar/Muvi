@@ -31,7 +31,7 @@ struct MoreView: View {
                         
                         VStack(alignment: .leading, spacing: 20) {
                             SectionItemView(imageTitle: "icon_info", title: "Terms & Condition")
-                            SectionItemView(imageTitle: "icon_lock", title: "Privacy & Policy")
+                            SectionItemView(imageTitle: "icon_shield", title: "Privacy & Policy")
                         }
                     }
                     
@@ -87,9 +87,7 @@ struct ProfileSectionView: View {
             
             Spacer()
             
-            Button {
-                
-            } label: {
+            NavigationLink(destination: EditProfileView()) {
                 Image(.iconEdit)
                     .resizable()
                     .aspectRatio(contentMode: .fit)

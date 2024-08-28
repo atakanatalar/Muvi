@@ -11,6 +11,7 @@
 		0C00FFF22C7C649600A521E3 /* MyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C00FFF12C7C649600A521E3 /* MyListView.swift */; };
 		0C00FFF52C7C652F00A521E3 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C00FFF42C7C652F00A521E3 /* PersistenceManager.swift */; };
 		0C00FFF72C7C6D2C00A521E3 /* MyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C00FFF62C7C6D2C00A521E3 /* MyListViewModel.swift */; };
+		0C00FFFD2C7F460900A521E3 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C00FFFC2C7F460900A521E3 /* EditProfileView.swift */; };
 		0C04FEB42C78BE1000F0B8A6 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C04FEB32C78BE1000F0B8A6 /* SearchBarView.swift */; };
 		0C04FEB72C78D6DB00F0B8A6 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C04FEB62C78D6DB00F0B8A6 /* SearchViewModel.swift */; };
 		0C04FEB92C78D7B200F0B8A6 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C04FEB82C78D7B200F0B8A6 /* SearchCell.swift */; };
@@ -54,6 +55,7 @@
 		0C00FFF12C7C649600A521E3 /* MyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListView.swift; sourceTree = "<group>"; };
 		0C00FFF42C7C652F00A521E3 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		0C00FFF62C7C6D2C00A521E3 /* MyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewModel.swift; sourceTree = "<group>"; };
+		0C00FFFC2C7F460900A521E3 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		0C04FEB32C78BE1000F0B8A6 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		0C04FEB62C78D6DB00F0B8A6 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		0C04FEB82C78D7B200F0B8A6 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				0C04FEB52C78D6CC00F0B8A6 /* SearchView */,
 				0C00FFF32C7C650500A521E3 /* MyListView */,
 				0C5AD04D2C735959009B1CA5 /* MoreView.swift */,
+				0C00FFFC2C7F460900A521E3 /* EditProfileView.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				0C5AD04E2C735959009B1CA5 /* MoreView.swift in Sources */,
 				0C5AD0572C73767D009B1CA5 /* NavigationBarModifier.swift in Sources */,
 				0C5AD0872C77289F009B1CA5 /* MediaDetail.swift in Sources */,
+				0C00FFFD2C7F460900A521E3 /* EditProfileView.swift in Sources */,
 				0C5AD0842C7717CC009B1CA5 /* DetailView.swift in Sources */,
 				0C00FFEE2C7C596300A521E3 /* MyListCell.swift in Sources */,
 				0C00FFF22C7C649600A521E3 /* MyListView.swift in Sources */,
