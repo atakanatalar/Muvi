@@ -32,8 +32,10 @@ struct MoreView: View {
                         SectionTitleView(title: "Terms")
                         
                         VStack(alignment: .leading, spacing: 20) {
-                            SectionItemView(imageTitle: "icon_info", title: "Terms & Condition")
                             SectionItemView(imageTitle: "icon_shield", title: "Privacy & Policy")
+                            NavigationLink(destination: TermsOfServicesView()) {
+                                SectionItemView(imageTitle: "icon_info", title: "Terms of Services")
+                            }
                         }
                     }
                     
