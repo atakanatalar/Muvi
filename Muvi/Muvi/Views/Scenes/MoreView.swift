@@ -51,9 +51,7 @@ struct MoreView: View {
         .navigationBar(title: "More")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    // Action for the button
-                } label: {
+                NavigationLink(destination: InboxView()) {
                     Image(.iconInbox)
                 }
             }
