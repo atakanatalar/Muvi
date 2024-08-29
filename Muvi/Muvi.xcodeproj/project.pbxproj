@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C0000032C8064FE00A521E3 /* HelpFAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0000022C8064FE00A521E3 /* HelpFAQView.swift */; };
 		0C0000052C8082D000A521E3 /* InboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0000042C8082D000A521E3 /* InboxView.swift */; };
 		0C00FFEE2C7C596300A521E3 /* MyListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C00FFED2C7C596300A521E3 /* MyListCell.swift */; };
 		0C00FFF22C7C649600A521E3 /* MyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C00FFF12C7C649600A521E3 /* MyListView.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C0000022C8064FE00A521E3 /* HelpFAQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpFAQView.swift; sourceTree = "<group>"; };
 		0C0000042C8082D000A521E3 /* InboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxView.swift; sourceTree = "<group>"; };
 		0C00FFED2C7C596300A521E3 /* MyListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListCell.swift; sourceTree = "<group>"; };
 		0C00FFF12C7C649600A521E3 /* MyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListView.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				0C5AD04D2C735959009B1CA5 /* MoreView.swift */,
 				0C0000042C8082D000A521E3 /* InboxView.swift */,
 				0C00FFFC2C7F460900A521E3 /* EditProfileView.swift */,
+				0C0000022C8064FE00A521E3 /* HelpFAQView.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				0C5AD0592C738F4D009B1CA5 /* SegmentedControl.swift in Sources */,
 				0C6659C52C734EA600735237 /* OnboardView.swift in Sources */,
 				0C6659C32C734CA800735237 /* SplashView.swift in Sources */,
+				0C0000032C8064FE00A521E3 /* HelpFAQView.swift in Sources */,
 				0C5AD0682C73C1D1009B1CA5 /* HeroCell.swift in Sources */,
 				0C5AD06C2C7490BC009B1CA5 /* MediaSectionView.swift in Sources */,
 				0C6659C12C734BE600735237 /* LogoView.swift in Sources */,

@@ -22,7 +22,9 @@ struct MoreView: View {
                         VStack(alignment: .leading, spacing: 20) {
                             SectionItemView(imageTitle: "icon_user", title: "Account Settings")
                             SectionItemView(imageTitle: "icon_settings", title: "App Settings")
-                            SectionItemView(imageTitle: "icon_message", title: "Help, FAQ")
+                            NavigationLink(destination: HelpFAQView()) {
+                                SectionItemView(imageTitle: "icon_message", title: "Help, FAQ")
+                            }
                         }
                     }
                     
