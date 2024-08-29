@@ -10,18 +10,27 @@ import SwiftUI
 struct NavigationBarModifier: ViewModifier {
     let showLogo: Bool
     let title: String?
+    let inlineTitle: String?
     
     func body(content: Content) -> some View {
         content
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    if showLogo {
-                        LogoView(frameHeight: 35)
-                    } else if let title = title {
-                        Text(title)
-                            .font(.title)
+                if let inlineTile = inlineTitle {
+                    ToolbarItem(placement: .principal) {
+                        Text(inlineTile)
                             .fontWeight(.bold)
                             .foregroundStyle(.surfaceWhite)
+                    }
+                } else {
+                    ToolbarItem(placement: .topBarLeading) {
+                        if showLogo {
+                            LogoView(frameHeight: 35)
+                        } else if let title = title {
+                            Text(title)
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .foregroundStyle(.surfaceWhite)
+                        }
                     }
                 }
             }

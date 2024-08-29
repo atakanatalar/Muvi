@@ -23,7 +23,7 @@ extension View {
     }
     
     //MARK: NavigationBar
-    func navigationBar(showLogo: Bool = false, title: String? = nil) -> some View {
-            self.modifier(NavigationBarModifier(showLogo: showLogo, title: title))
+    func navigationBar(showLogo: Bool = false, title: String? = nil, inlineTitle: String? = nil) -> some View {
+            self.modifier(NavigationBarModifier(showLogo: showLogo, title: title, inlineTitle: inlineTitle))
         }
 }

@@ -33,7 +33,7 @@ struct EditProfileView: View {
             .padding(.top, 16)
             .padding(.horizontal, 20)
         }
-        .navigationBar(title: "Edit Profile")
+        .navigationBar(inlineTitle: "Edit Profile")
         .toolbar {
             ToolbarItemGroup(placement: .topBarTrailing) {
                 Spacer()
@@ -41,7 +41,7 @@ struct EditProfileView: View {
                     //
                 } label: {
                     Text("Save")
-                        .foregroundStyle(.surfaceWhite)
+                        .foregroundStyle(.brandPrimary)
                 }
             }
         }
@@ -101,7 +101,7 @@ struct FormSection: View {
             HStack {
                 TextField("", text: $text, prompt: Text(title).foregroundStyle(.mediumEmphasis))
                     .font(.headline)
-                    .foregroundStyle(.surfaceWhite)
+                    .foregroundStyle(.highEmphasis)
                     .autocorrectionDisabled()
                 
                 Image(icon)
@@ -130,7 +130,7 @@ struct DatePickerSection: View {
             HStack {
                 DatePicker("Birthday", selection: $birthday, displayedComponents: .date)
                     .datePickerStyle(CompactDatePickerStyle())
-                    .foregroundColor(.surfaceWhite)
+                    .foregroundColor(.highEmphasis)
                     .font(.headline)
                 
                 Image(icon)
