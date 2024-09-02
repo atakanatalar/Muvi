@@ -10,8 +10,9 @@ import Combine
 
 class SearchViewModel: ObservableObject {
     @Published var searchText = ""
-    @Published var seachResults: [Result]?
+    @Published var searchResults: [Result]?
     @Published var mediaRecommendations: [Result]?
+    @Published var isEmptyState: Bool = false
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -26,7 +27,7 @@ class SearchViewModel: ObservableObject {
     
     private func search(query: String) {
         guard !query.isEmpty else {
-            seachResults = nil
+            searchResults = nil
             return
         }
         
@@ -36,7 +37,8 @@ class SearchViewModel: ObservableObject {
                 let filteredResults = media.results.filter { $0.mediaType != .person }
                                 
                 DispatchQueue.main.async {
-                    self.seachResults = filteredResults
+                    self.searchResults = filteredResults
+                    self.isEmptyState = filteredResults.isEmpty
                 }
             } catch {
                 print(error.localizedDescription)

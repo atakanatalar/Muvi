@@ -51,6 +51,7 @@ struct HomeView: View {
                 .fill(.surfaceDark)
                 .ignoresSafeArea()
         }
+        .padding(.bottom, -6)
     }
     
     private var heroMedia: Result {

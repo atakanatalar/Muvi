@@ -11,18 +11,21 @@ struct SearchView: View {
     @StateObject private var viewModel = SearchViewModel()
 
     var body: some View {
-        ZStack {
+        ZStack(alignment: .top) {
             Color.surfaceDark.ignoresSafeArea()
             
             VStack(spacing: 16) {
                 SearchBarView(searchText: $viewModel.searchText)
                 
-                if let seachResults = viewModel.seachResults {
-                    SearchListView(title: "Top Results", medias: seachResults)
-                    
+                if let searchResults = viewModel.searchResults {
+                    if viewModel.isEmptyState {
+                        EmptySearch(searchText: $viewModel.searchText)
+                    } else {
+                        SearchListView(title: "Top Results", medias: searchResults)
+                    }
                 } else {
                     if let mediaRecommendations = viewModel.mediaRecommendations {
-                        SearchListView(title: "Recommended for You", medias: mediaRecommendations)
+                        SearchListView(title: "Popular Search", medias: mediaRecommendations)
                     }
                 }
             }
@@ -59,6 +62,31 @@ struct SearchListView: View {
             }
             .padding(.horizontal, 20)
             .padding(.bottom, 16)
+        }
+    }
+}
+
+struct EmptySearch: View {
+    @Binding var searchText: String
+    var body: some View {
+        VStack(spacing: 24) {
+            Spacer()
+            Image(.emptySearch)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 200)
+            
+            VStack(spacing: 8) {
+                Text("No Result")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.surfaceWhite)
+                
+                Text("\"\(searchText)\" not found")
+                    .font(.body)
+                    .foregroundStyle(.mediumEmphasis)
+            }
+            Spacer()
         }
     }
 }
