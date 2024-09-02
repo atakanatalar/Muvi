@@ -17,15 +17,20 @@ struct MyListView: View {
             
             List {
                 Section {
-                    ForEach(viewModel.savedMedias, id: \.id) { media in
-                        NavigationLink(destination: DetailView(viewModel: DetailViewModel(media: media))) {
-                            MyListCell(media: media)
+                    if viewModel.isEmptyState {
+                        EmptyMyListView()
+                            .listRowBackground(Color.surfaceDark)
+                    } else {
+                        ForEach(viewModel.savedMedias, id: \.id) { media in
+                            NavigationLink(destination: DetailView(viewModel: DetailViewModel(media: media))) {
+                                MyListCell(media: media)
+                            }
+                            .listRowBackground(Color.surfaceDark)
+                            .listRowSeparator(.hidden, edges: .all)
+                            .foregroundStyle(.clear)
                         }
-                        .listRowBackground(Color.surfaceDark)
-                        .listRowSeparator(.hidden, edges: .all)
-                        .foregroundStyle(.clear)
+                        .onDelete(perform: viewModel.deleteMedia)
                     }
-                    .onDelete(perform: viewModel.deleteMedia)
                 }
                 
                 Section {
@@ -68,4 +73,33 @@ struct MyListView: View {
 
 #Preview {
     MyListView()
+}
+
+struct EmptyMyListView: View {
+    var body: some View {
+        HStack {
+            Spacer()
+            
+            VStack(alignment: .center, spacing: 24) {
+                Image(.emptyMyList)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 200)
+                
+                VStack(alignment: .center, spacing: 8) {
+                    Text("Your List is Empty")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundStyle(.surfaceWhite)
+                    
+                    Text("You can add movies or series to your list from their detail pages")
+                        .font(.body)
+                        .foregroundStyle(.mediumEmphasis)
+                        .multilineTextAlignment(.center)
+                }
+            }
+            
+            Spacer()
+        }
+    }
 }

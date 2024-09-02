@@ -10,6 +10,7 @@ import Foundation
 class MyListViewModel: ObservableObject {
     @Published var savedMedias: [Result] = []
     @Published var mediaRecommendations: Media?
+    @Published var isEmptyState: Bool = false
     
     func fetchMediaRecommendations() {
         Task {
@@ -34,6 +35,7 @@ class MyListViewModel: ObservableObject {
     
     func loadSavedMedias() {
         savedMedias = PersistenceManager.shared.loadResults()
+        isEmptyState = savedMedias.isEmpty
     }
     
     func deleteMedia(at offsets: IndexSet) {
@@ -42,5 +44,6 @@ class MyListViewModel: ObservableObject {
             PersistenceManager.shared.removeResult(by: media.id)
         }
         savedMedias.remove(atOffsets: offsets)
+        isEmptyState = savedMedias.isEmpty
     }
 }
