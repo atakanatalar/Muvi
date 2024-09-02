@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct InboxView: View {
+    @State private var notifications = Notification.notifications
+    
     var body: some View {
         ZStack {
             Color.surfaceDark.ignoresSafeArea()
             
-            VStack {
-                List(Notification.notifications) { notification in
+            List() {
+                ForEach(notifications) { notification in
                     VStack(alignment: .leading, spacing: 8) {
                         HStack {
                             Text(notification.title)
@@ -33,11 +35,18 @@ struct InboxView: View {
                     .listRowBackground(Color.surfaceDark)
                     .listRowSeparator(.hidden)
                 }
-                .listStyle(.plain)
-                .listRowSpacing(8)
+                .onDelete(perform: deleteNotification)
             }
+            .listStyle(.plain)
+            .listRowSpacing(8)
+            
+            if notifications.isEmpty { EmptyInboxView() }
         }
         .navigationBar(inlineTitle: "Inbox")
+    }
+    
+    private func deleteNotification(at offsets: IndexSet) {
+        notifications.remove(atOffsets: offsets)
     }
 }
 
@@ -70,4 +79,26 @@ extension Notification {
             date: "27.08.2024, 19:14"
         )
     ]
+}
+
+struct EmptyInboxView: View {
+    var body: some View {
+        VStack(spacing: 24) {
+            Image(.emptyInbox)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 200)
+            
+            VStack(spacing: 8) {
+                Text("No Inbox Yet")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.surfaceWhite)
+                
+                Text("Search Movie, Series, Originals, as you like")
+                    .font(.body)
+                    .foregroundStyle(.mediumEmphasis)
+            }
+        }
+    }
 }
