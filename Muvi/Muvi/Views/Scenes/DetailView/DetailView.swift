@@ -91,7 +91,8 @@ struct DetailView: View {
                     
                     HStack {
                         Button {
-                            
+                            viewModel.playTrailer()
+                            viewModel.isPlayingMediaTrailer = true
                         } label: {
                             Label("Watch Trailer", systemImage: "play")
                                 .frame(maxWidth: .infinity)
@@ -201,6 +202,9 @@ struct DetailView: View {
         .toolbarBackground(.surfaceDark, for: .navigationBar)
         .onAppear {
             viewModel.checkIfMediaIsSaved()
+        }
+        .sheet(isPresented: $viewModel.isPlayingMediaTrailer) {
+            MediaTrailerView(mediaTrailerId: viewModel.mediaTrailerId ?? "")
         }
     }
 }

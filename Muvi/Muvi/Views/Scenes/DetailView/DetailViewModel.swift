@@ -17,6 +17,8 @@ class DetailViewModel: ObservableObject {
     @Published var storyNames: String?
     @Published var novelNames: String?
     @Published var isSaved: Bool = false
+    @Published var mediaTrailerId: String?
+    @Published var isPlayingMediaTrailer: Bool = false
     
     var media: Result
     
@@ -37,6 +39,20 @@ class DetailViewModel: ObservableObject {
     
     func checkIfMediaIsSaved() {
         isSaved = PersistenceManager.shared.resultExists(with: media.id)
+    }
+    
+    func playTrailer() {
+        Task {
+            do {
+                let query = "\(media.name ?? media.title ?? "") Trailer"
+                let mediaTrailer: VideoElement = try await NetworkManager.shared.getMediaTrailer(with: query)
+                DispatchQueue.main.async {
+                    self.mediaTrailerId = mediaTrailer.id.videoId
+                }
+            } catch {
+                print("Failed to fetch data: \(error)")
+            }
+        }
     }
     
     func fetchMediaDetail() {

@@ -40,6 +40,30 @@ class NetworkManager {
         let decodedData = try JSONDecoder().decode(T.self, from: data)
         return decodedData
     }
+    
+    func getMediaTrailer(with query: String) async throws -> VideoElement {
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
+            throw URLError(.badURL)
+        }
+        
+        guard let url = URL(string: "\(NetworkConstants.youTubeBaseURL)search?q=\(query)&key=\(NetworkConstants.youTubeAPIKey)") else {
+            throw URLError(.badURL)
+        }
+        
+        let (data, _) = try await URLSession.shared.data(from: url)
+        
+        do {
+            let results = try JSONDecoder().decode(MediaTrailer.self, from: data)
+            
+            guard let firstItem = results.items.first else {
+                throw NSError(domain: "MediaTrailerErrorDomain", code: 1, userInfo: [NSLocalizedDescriptionKey: "No trailer found in the search results."])
+            }
+            
+            return firstItem
+        } catch {
+            throw NSError(domain: "MediaTrailerErrorDomain", code: 2, userInfo: [NSLocalizedDescriptionKey: "Failed to decode the media trailer response."])
+        }
+    }
 }
 
 enum MediaEndpoint {
