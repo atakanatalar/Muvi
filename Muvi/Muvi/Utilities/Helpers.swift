@@ -34,12 +34,12 @@ func genresToString(genres: [Genre]) -> String {
     return genres.map { $0.name }.joined(separator: ", ")
 }
 
-func formattedMediaInfo(releaseDate: String?, lastAirDate: String?, mediaType: String, numberOfSeasons: Int?, runtime: Int?, voteAverage: Double?, isHd: Bool) -> String {
+func formattedMediaInfo(releaseDate: String?, firstAirDate: String?, lastAirDate: String?, mediaType: String, numberOfSeasons: Int?, runtime: Int?, voteAverage: Double?, isHd: Bool) -> String {
     if !isHd {
-        return formattedMediaInfoWithDots(releaseDate: releaseDate, lastAirDate: lastAirDate, mediaType: mediaType, numberOfSeasons: numberOfSeasons, runtime: runtime, voteAverage: voteAverage)
+        return formattedMediaInfoWithDots(releaseDate: releaseDate, firstAirDate: firstAirDate, lastAirDate: lastAirDate, mediaType: mediaType, numberOfSeasons: numberOfSeasons, runtime: runtime, voteAverage: voteAverage)
     }
     
-    let year = releaseDate?.prefix(4) ?? lastAirDate?.prefix(4) ?? ""
+    let year = releaseDate?.prefix(4) ?? "\(firstAirDate?.prefix(4) ?? "")-\(lastAirDate?.prefix(4) ?? "")"
     let typeInfo = mediaType == "tv" ? "\(numberOfSeasons ?? 0) Season" : formattedDuration(from: runtime ?? 0)
     let voteAverage = String(format: "%.1f", voteAverage ?? 0.0)
     let voteString = "IMDb \(voteAverage)"
@@ -48,8 +48,8 @@ func formattedMediaInfo(releaseDate: String?, lastAirDate: String?, mediaType: S
     return components.map { "\($0) •" }.joined(separator: " ")
 }
 
-func formattedMediaInfoWithDots(releaseDate: String?, lastAirDate: String?, mediaType: String, numberOfSeasons: Int?, runtime: Int?, voteAverage: Double?) -> String {
-    let year = releaseDate?.prefix(4) ?? lastAirDate?.prefix(4) ?? ""
+func formattedMediaInfoWithDots(releaseDate: String?, firstAirDate: String?, lastAirDate: String?, mediaType: String, numberOfSeasons: Int?, runtime: Int?, voteAverage: Double?) -> String {
+    let year = releaseDate?.prefix(4) ?? "\(firstAirDate?.prefix(4) ?? "")-\(lastAirDate?.prefix(4) ?? "")"
     let typeInfo = mediaType == "tv" ? "\(numberOfSeasons ?? 0) Season" : formattedDuration(from: runtime ?? 0)
     let voteAverage = String(format: "%.1f", voteAverage ?? 0.0)
     let voteString = "IMDb \(voteAverage)"

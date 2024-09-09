@@ -65,6 +65,7 @@ struct DetailView: View {
                             HStack {
                                 Text(formattedMediaInfo(
                                     releaseDate: viewModel.mediaDetail?.releaseDate,
+                                    firstAirDate: viewModel.mediaDetail?.firstAirDate,
                                     lastAirDate: viewModel.mediaDetail?.lastAirDate,
                                     mediaType: viewModel.mediaDetail?.mediaDetailType ?? "",
                                     numberOfSeasons: viewModel.mediaDetail?.numberOfSeasons,
