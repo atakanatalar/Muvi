@@ -38,6 +38,7 @@ To install and run the app on your local machine, follow these steps:
 - **Firebase Firestore**: For storing user-specific media lists.
 - **Firebase Authentication**: For user authentication and account management.
 - **TMDB API**: For retrieving movie and series information.
+- **YouTube API**: For retrieving video information.
 
 ## Screenshots
 ![Group 2](https://github.com/user-attachments/assets/325b05ec-8a65-4e76-9406-b738b5554da5)
