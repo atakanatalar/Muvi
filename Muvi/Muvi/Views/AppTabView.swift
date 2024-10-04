@@ -45,18 +45,27 @@ struct AppTabView: View {
         .edgesIgnoringSafeArea(.bottom)
         .onAppear {
             if isFirstTime {
-                DispatchQueue.main.async() { isShowingOnboardView = true }
+                DispatchQueue.main.async {
+                    isShowingOnboardView = true
+                }
+            } else {
+                checkAuthenticationStatus()
             }
-            
-            let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
-            self.isShowingLoginView = authUser == nil ? true : false
         }
         .fullScreenCover(isPresented: $isShowingOnboardView) {
             OnboardView(isShowingOnboardView: $isShowingOnboardView)
+                .onDisappear {
+                    checkAuthenticationStatus()
+                }
         }
         .fullScreenCover(isPresented: $isShowingLoginView) {
             NavigationStack { LoginView() }
         }
+    }
+    
+    private func checkAuthenticationStatus() {
+        let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
+        self.isShowingLoginView = authUser == nil ? true : false
     }
 }
 
