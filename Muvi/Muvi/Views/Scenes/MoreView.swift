@@ -6,21 +6,31 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import FirebaseFirestore
 
 struct MoreView: View {
+    @Binding var isShowingLoginView: Bool
+    @State private var name: String = ""
+    @State private var email: String = ""
+    @State private var profileImage: UIImage? = UIImage(named: "default_profile")
+    @State private var isLoading: Bool = true
+    
     var body: some View {
         ZStack {
             Color.surfaceDark.ignoresSafeArea()
             
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 32) {
-                    ProfileSectionView()
+                    ProfileSectionView(name: $name, email: $email, profileImage: $profileImage, isLoading: $isLoading)
                     
                     VStack(alignment: .leading, spacing: 16) {
                         SectionTitleView(title: "General Settings")
                         
                         VStack(alignment: .leading, spacing: 20) {
-                            SectionItemView(imageTitle: "icon_user", title: "Account Settings")
+                            NavigationLink(destination: AccountSettings(isShowingLoginView: $isShowingLoginView, email: $email)) {
+                                SectionItemView(imageTitle: "icon_user", title: "Account Settings")
+                            }
                             SectionItemView(imageTitle: "icon_settings", title: "App Settings")
                             NavigationLink(destination: HelpFAQView()) {
                                 SectionItemView(imageTitle: "icon_message", title: "Help, FAQ")
@@ -42,7 +52,12 @@ struct MoreView: View {
                     }
                     
                     Button {
-                        
+                        do {
+                            try AuthenticationManager.shared.signOut()
+                            isShowingLoginView = true
+                        } catch {
+                            print(error)
+                        }
                     } label: {
                         Text("Logout")
                             .frame(maxWidth: .infinity)
@@ -62,32 +77,99 @@ struct MoreView: View {
                 }
             }
         }
+        .onAppear {
+            loadUserData()
+        }
+    }
+    
+    private func loadUserData() {
+        if let user = Auth.auth().currentUser {
+            self.email = user.email ?? "No Email"
+            
+            let db = Firestore.firestore()
+            let userRef = db.collection("users").document(user.uid)
+            
+            userRef.getDocument { document, error in
+                if let document = document, document.exists {
+                    let data = document.data()
+                    self.name = data?["name"] as? String ?? "No Name"
+                    
+                    if let profileImageUrl = data?["profileImageUrl"] as? String {
+                        loadImage(from: profileImageUrl) { image in
+                            self.profileImage = image
+                            self.isLoading = false
+                        }
+                    } else {
+                        self.isLoading = false
+                    }
+                } else {
+                    print("Document does not exist")
+                    self.isLoading = false
+                }
+            }
+        } else {
+            self.isLoading = false
+        }
+    }
+    
+    private func loadImage(from url: String, completion: @escaping (UIImage?) -> Void) {
+        guard let imageUrl = URL(string: url) else {
+            completion(nil)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: imageUrl) { data, response, error in
+            if let data = data, let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    completion(image)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+            }
+        }.resume()
     }
 }
 
 #Preview {
-    MoreView()
+    MoreView(isShowingLoginView: .constant(false))
 }
 
 struct ProfileSectionView: View {
+    @Binding var name: String
+    @Binding var email: String
+    @Binding var profileImage: UIImage?
+    @Binding var isLoading: Bool
+    
     var body: some View {
         HStack(spacing: 12) {
-            Image(.profile)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 60)
-                .foregroundStyle(.surfaceWhite)
-                .clipShape(Circle())
-            
-            VStack(alignment: .leading) {
-                Text("Atakan Atalar")
-                    .font(.headline)
-                    .foregroundStyle(.surfaceWhite)
+            Group {
+                if let profileImage = profileImage {
+                    Image(uiImage: profileImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 60, height: 60)
+                        .clipShape(Circle())
+                } else {
+                    Image(systemName: "person.crop.circle.fill")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 60)
+                        .clipShape(Circle())
+                }
                 
-                Text("atakanatalar")
-                    .font(.subheadline)
-                    .foregroundStyle(.highEmphasis)
+                VStack(alignment: .leading) {
+                    Text(name)
+                        .font(.headline)
+                        .foregroundStyle(.surfaceWhite)
+                    
+                    Text(email)
+                        .font(.subheadline)
+                        .foregroundStyle(.highEmphasis)
+                }
             }
+            .redacted(reason: isLoading ? .placeholder : [])
             
             Spacer()
             

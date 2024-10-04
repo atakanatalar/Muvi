@@ -10,6 +10,7 @@ import SwiftUI
 struct AppTabView: View {
     @AppStorage("isFirstTime") private var isFirstTime: Bool = true
     @State var isShowingOnboardView: Bool = false
+    @State var isShowingLoginView: Bool = false
     @State var selectedTab = 0
     
     let tabs = [
@@ -31,7 +32,7 @@ struct AppTabView: View {
                 NavigationStack { MyListView() }
                     .tag(2)
                 
-                NavigationStack { MoreView() }
+                NavigationStack { MoreView(isShowingLoginView: $isShowingLoginView) }
                     .tag(3)
             }
             
@@ -46,9 +47,15 @@ struct AppTabView: View {
             if isFirstTime {
                 DispatchQueue.main.async() { isShowingOnboardView = true }
             }
+            
+            let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
+            self.isShowingLoginView = authUser == nil ? true : false
         }
         .fullScreenCover(isPresented: $isShowingOnboardView) {
             OnboardView(isShowingOnboardView: $isShowingOnboardView)
+        }
+        .fullScreenCover(isPresented: $isShowingLoginView) {
+            NavigationStack { LoginView() }
         }
     }
 }

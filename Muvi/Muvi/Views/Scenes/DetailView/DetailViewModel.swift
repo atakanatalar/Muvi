@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import FirebaseAuth
+import FirebaseFirestore
 
 class DetailViewModel: ObservableObject {
     @Published var mediaDetail: MediaDetail?
@@ -29,16 +31,86 @@ class DetailViewModel: ObservableObject {
     
     func toggleSaveMedia() {
         if isSaved {
-            PersistenceManager.shared.removeResult(by: media.id)
+            removeMediaFromMyList()
             isSaved = false
         } else {
-            PersistenceManager.shared.addResult(media)
+            addMediaToMyList()
             isSaved = true
         }
     }
     
+    private func addMediaToMyList() {
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        let db = Firestore.firestore()
+        
+        let mediaData: [String: Any] = [
+            "id": media.id,
+            "title": media.title ?? media.name ?? "",
+            "backdropPath": media.backdropPath ?? "",
+            "createdAt": Timestamp(date: Date())
+        ]
+        
+        db.collection("users").document(userId).updateData([
+            "myList": FieldValue.arrayUnion([mediaData])
+        ]) { error in
+            if let error = error {
+                print("Error adding media to myList: \(error)")
+            } else {
+                print("Media successfully added to myList")
+            }
+        }
+    }
+    
+    private func removeMediaFromMyList() {
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        let db = Firestore.firestore()
+        
+        db.collection("users").document(userId).getDocument { (document, error) in
+            if let error = error {
+                print("Error fetching myList: \(error)")
+                return
+            }
+            
+            if let document = document, document.exists {
+                var myList = document.data()?["myList"] as? [[String: Any]] ?? []
+                
+                myList.removeAll { mediaItem in
+                    return mediaItem["id"] as? Int == self.media.id
+                }
+                
+                db.collection("users").document(userId).updateData([
+                    "myList": myList
+                ]) { error in
+                    if let error = error {
+                        print("Error updating myList after removal: \(error)")
+                    } else {
+                        print("Media successfully removed from myList")
+                    }
+                }
+            } else {
+                print("User document does not exist")
+            }
+        }
+    }
+    
     func checkIfMediaIsSaved() {
-        isSaved = PersistenceManager.shared.resultExists(with: media.id)
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        let db = Firestore.firestore()
+        
+        db.collection("users").document(userId).getDocument { document, error in
+            if let error = error {
+                print("Error fetching user document: \(error)")
+                return
+            }
+            guard let document = document, document.exists,
+                  let data = document.data(),
+                  let myList = data["myList"] as? [[String: Any]] else {
+                self.isSaved = false
+                return
+            }
+            
+            self.isSaved = myList.contains { $0["id"] as? Int == self.media.id }
+        }
     }
     
     func playTrailer() {

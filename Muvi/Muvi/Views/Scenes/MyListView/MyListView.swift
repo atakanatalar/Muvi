@@ -15,53 +15,58 @@ struct MyListView: View {
         ZStack {
             Color.surfaceDark.ignoresSafeArea()
             
-            List {
-                Section {
-                    if viewModel.isEmptyState {
-                        EmptyMyListView()
-                            .listRowBackground(Color.surfaceDark)
-                    } else {
-                        ForEach(viewModel.savedMedias, id: \.id) { media in
-                            NavigationLink(destination: DetailView(viewModel: DetailViewModel(media: media))) {
-                                MyListCell(media: media)
+            if viewModel.isLoading {
+                ProgressView("Loading...")
+                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                    .scaleEffect(1.0, anchor: .center)
+            } else {
+                List {
+                    Section {
+                        if viewModel.isEmptyState {
+                            EmptyMyListView()
+                                .listRowBackground(Color.surfaceDark)
+                        } else {
+                            ForEach(viewModel.savedMedias, id: \.id) { media in
+                                NavigationLink(destination: DetailView(viewModel: DetailViewModel(media: media))) {
+                                    MyListCell(media: media)
+                                }
+                                .listRowBackground(Color.surfaceDark)
+                                .listRowSeparator(.hidden, edges: .all)
+                                .foregroundStyle(.clear)
                             }
-                            .listRowBackground(Color.surfaceDark)
-                            .listRowSeparator(.hidden, edges: .all)
-                            .foregroundStyle(.clear)
+                            .onDelete(perform: viewModel.deleteMedia)
                         }
-                        .onDelete(perform: viewModel.deleteMedia)
                     }
-                }
-                
-                Section {
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text("Recommendations")
-                            .font(.title3)
-                            .fontWeight(.bold)
-                            .foregroundStyle(.surfaceWhite)
-                            .padding(.horizontal, 20)
-                        
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            LazyHGrid(rows: gridItems, spacing: 10) {
-                                if let mediaRecommendations = viewModel.mediaRecommendations?.results {
-                                    ForEach(mediaRecommendations, id: \.id) { mediaRecommendation in
-                                        NavigationLink(destination: DetailView(viewModel: DetailViewModel(media: mediaRecommendation))) {
-                                            MediaCell(media: mediaRecommendation)
+                    
+                    Section {
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("Recommendations")
+                                .font(.title3)
+                                .fontWeight(.bold)
+                                .foregroundStyle(.surfaceWhite)
+                                .padding(.horizontal, 20)
+                            
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                LazyHGrid(rows: gridItems, spacing: 10) {
+                                    if let mediaRecommendations = viewModel.mediaRecommendations?.results {
+                                        ForEach(mediaRecommendations, id: \.id) { mediaRecommendation in
+                                            NavigationLink(destination: DetailView(viewModel: DetailViewModel(media: mediaRecommendation))) {
+                                                MediaCell(media: mediaRecommendation)
+                                            }
                                         }
-                                        
                                     }
                                 }
                             }
                         }
+                        .listRowBackground(Color.surfaceDark)
+                        .listRowSeparator(.hidden, edges: .all)
+                        .contentMargins(.horizontal, 20, for: .scrollContent)
                     }
-                    .listRowBackground(Color.surfaceDark)
-                    .listRowSeparator(.hidden, edges: .all)
-                    .contentMargins(.horizontal, 20, for: .scrollContent)
+                    .padding(.horizontal, -20)
+                    .frame(height: 240)
                 }
-                .padding(.horizontal, -20)
-                .frame(height: 240)
+                .listStyle(PlainListStyle())
             }
-            .listStyle(PlainListStyle())
         }
         .navigationBar(title: "My List")
         .onAppear {
