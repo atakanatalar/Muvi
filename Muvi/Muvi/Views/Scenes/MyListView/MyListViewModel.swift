@@ -61,12 +61,13 @@ class MyListViewModel: ObservableObject {
                 
                 for dict in myList {
                     if let id = dict["id"] as? Int,
+                       let name = dict["name"] as? String,
                        let title = dict["title"] as? String,
                        let backdropPath = dict["backdropPath"] as? String {
                         let media = Result(
                             backdropPath: backdropPath,
                             id: id,
-                            title: title,
+                            title: title.isEmpty ? nil : title,
                             originalTitle: nil,
                             overview: nil,
                             posterPath: nil,
@@ -78,7 +79,7 @@ class MyListViewModel: ObservableObject {
                             video: nil,
                             voteAverage: nil,
                             voteCount: nil,
-                            name: nil,
+                            name: name.isEmpty ? nil : name,
                             originalName: nil,
                             firstAirDate: nil,
                             originCountry: nil,

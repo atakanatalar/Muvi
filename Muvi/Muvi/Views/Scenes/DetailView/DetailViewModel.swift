@@ -45,7 +45,8 @@ class DetailViewModel: ObservableObject {
         
         let mediaData: [String: Any] = [
             "id": media.id,
-            "title": media.title ?? media.name ?? "",
+            "name": media.name ?? "",
+            "title": media.title ?? "",
             "backdropPath": media.backdropPath ?? "",
             "createdAt": Timestamp(date: Date())
         ]
